@@ -1,0 +1,48 @@
+{
+  "name": "zakrivayuschiy-teg-pug",
+  "version": "0.0.1",
+  "description": "Адаптивная вёрстка c анимацией, плавными переходами. Используется шаблонизатор Pug",
+  "keywords": [
+    "html",
+    "css",
+    "animation",
+    "transition",
+    "pug"
+  ],
+  "homepage": "https://github.com/igoral5/zakrivayuschiy-teg-pug#readme",
+  "bugs": {
+    "url": "https://github.com/igoral5/zakrivayuschiy-teg-pug/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igoral5/zakrivayuschiy-teg-pug.git"
+  },
+  "license": "ISC",
+  "author": "Igor Alimov <igoral@gmail.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Привет!'",
+    "check": "prettier --check './src/**/*.{html,css,js}'",
+    "format": "prettier --write './src/**/*.{html,css,js}'",
+    "lint": "stylelint './src/**/*.css'",
+    "lintfix": "stylelint './src/**/*.css' --fix",
+    "checkAll": "npm run check && npm run lint",
+    "fixAll": "npm run format && npm run lintfix",
+    "build": "gulp build",
+    "dev": "gulp"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "del": "^6.0.0",
+    "gulp": "^5.0.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^5.0.0",
+    "prettier": "^3.7.4",
+    "stylelint": "^16.26.1"
+  },
+  "dependencies": {
+    "gulp-cli": "^3.1.0"
+  }
+}

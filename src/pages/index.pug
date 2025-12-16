@@ -1,0 +1,126 @@
+doctype html 
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Закрывающий тег
+    link(rel="stylesheet" href="./bundle.css")
+    link(rel="icon" href="./images/favicon.ico" sizes="any")
+    link(rel="icon" href="./svg/favicon.svg" type="image/svg+xml")
+    link(rel="apple-touch-icon" href="./images/mobile-icon.png")
+  body.page
+    header.header.content-width
+      h1.header__title.uppercase &lt;/HTML&gt;
+      p.header__desc.uppercase закрывающий тег
+    main.main.content-width
+      - 
+        var articles = [
+          {
+            name: "Фритрек и нулевой спринт: Подготовка к работе", 
+            textFirst: "Это было самое начало пути. На этом этапе важно было проникнуться\
+              основами и настроиться на учёбу. И, возможно, подумать, как новые\
+              знания могут повлиять на ваше будущее.",
+            textLast: "Место для ваших воспоминаний о начале обучения.",
+          },
+          {
+            name: "1 спринт: Я — чистый лист",
+            textFirst: "На первых этапах мы работали со страхами и сомнениями, которые часто\
+              испытывают новички. Один из них — страх перед чистым листом. Это\
+              конечно же, намного сложнее, чем боязнь куска бумаги. Часто за этим\
+              ощущением скрываются более глубокие вопросы: с чего начать? а вдруг\
+              будет слишком сложно? что, если я не справлюсь?",
+            textLast: "Место для ваших воспоминаний о начале первого спринта.",
+            class: "sepia-saturate",
+          },
+          {
+            name: "1 спринт: А если не получится?",
+            textFirst: "Первый проект — позади! Но это всё ещё самое начало пути. Радость\
+              могла быстро померкнуть и смениться ожиданием провала. Или вы,\
+              наоборот, могли вдохновиться успехами и поверить в себя.",
+            textLast: "Место для ваших воспоминаний об окончании первого спринта.",
+            class: "saturate",
+          },
+          {
+            name: "2 спринт: Погоня за идеалом",
+            textFirst: "На этом этапе вы уже достаточно разбирались в основах вёрстки, чтобы\
+              понять, как много ещё впереди. Вы могли попытаться погнаться за\
+              идеалом и понять, что он недостижим. А, может, вы вовсе и не\
+              подвержены перфекционизму и вместо того, чтобы сделать идеально,\
+              старались просто сделать.",
+            textLast: "Место для ваших воспоминаний о начале второго спринта.",
+            class: "rotate"
+          },
+          {
+            name: "2 спринт: О тех, кто рядом",
+            textFirst: "Всё это время вы были не одиноки (хотя, возможно, иногда и\
+              чувствовали, что одни против целого мира). Вас окружали\
+              одногруппники, команда сопровождения и просто близкие люди, которым\
+              можно пожаловаться, если очередной макет просто так не поддавался.\
+              Осваивать что-то новое легче, когда рядом есть единомышленники, не\
+              правда ли?",
+            textLast: "Место для ваших воспоминаний об окончании второго спринта.",
+            class: "invert",
+          },
+          {
+            name: "3 спринт: Обходные стратегии",
+            textFirst: "На этом курсе вы постоянно решали разные задачи. В какой-то момент\
+              вам могло показаться, что решения просто иссякли. Значит, пришло\
+              время посмотреть на задачу под другим углом.",
+            textLast: "Место для ваших воспоминаний о начале третьего спринта.",
+            class: "sepia",
+          },
+          {
+            name: "3 спринт: Когда опускаются руки",
+            textFirst: "Во время учёбы часто возникает чувство, когда не знаешь, за что\
+              хвататься. Вроде и проектную пора сдавать, и задачи хочется\
+              порешать, и в теории получше разобраться, и жизнь не забыть пожить.\
+              В такие моменты очень нужна концентрация. Вспомните, откуда вы её\
+              черпали.",
+            textLast: "Место для ваших воспоминаний об окончании третьего спринта.",
+            class: "blur",
+          },
+          {
+            name: "«Сейчас я здесь»",
+            textFirst: "Сейчас вы уже очень много знаете о вёрстке. Но это только начало.\
+              Во-первых, впереди ещё много материала про «красотищу». Во-вторых, с\
+              окончанием курса учёба не заканчивается. Вёрстка — это целый мир. И\
+              этот мир постоянно меняется. Познать его полностью не получится, но\
+              это тот случай, когда важен сам процесс познания. Ведь часто путь —\
+              и есть результат.",
+            textLast: "Место, чтобы остановиться, подумать и написать, что вы чувствуете в\
+              этой точке пути.",
+            class: "rotate-blur"
+          }
+        ]
+      each value in articles
+        article.card
+          h2.card__title= value.name
+          div.card__image-container
+            img.card__image(class=value.class, src="./images/minivan.png" alt="Стилизованное изображение минивена")
+            span.watermark.uppercase &lt;/HTML&gt;
+          div.card__description
+            p.card__text= value.textFirst 
+            p.card__text= value.textLast
+            div.card__button-container
+              button.card__icon-button(type="button")
+                svg.like-icon(viewBox="0 0 39 36", fill="none", xmlns="http://www.w3.org/2000/svg")
+                  g.heart 
+                    path.contour(d="M12 6H9V9H12V6ZM15 6H12V9H15V6ZM9 9H6V12H9V9ZM9 12H6V15H9V12ZM9 15H6V18H9V15ZM18 6H15V9H18V6ZM12 18H9V21H12V18ZM15 21H12V24H15V21ZM18 24H15V27H18V24ZM27 6H30V9H27V6ZM24 6H27V9H24V6ZM30 9H33V12H30V9ZM30 12H33V15H30V12ZM30 15H33V18H30V15ZM21 6H24V9H21V6ZM27 18H30V21H27V18ZM24 21H27V24H24V21ZM21 24H24V27H21V24ZM21 27H18V30H21V27ZM21 9H18V12H21V9Z")
+                    path.core(d="M12 9H9V12H12V9ZM15 12H12V15H15V12ZM18 9H15V12H18V9ZM12 15H9V18H12V15ZM15 15H12V18H15V15ZM15 18H12V21H15V18ZM18 12H15V15H18V12ZM18 21H15V24H18V21ZM18 18H15V21H18V18ZM27 9H30V12H27V9ZM24 9H27V12H24V9ZM27 12H30V15H27V12ZM24 12H27V15H24V12ZM21 9H24V12H21V9ZM27 15H30V18H27V15ZM24 15H27V18H24V15ZM24 18H27V21H24V18ZM21 12H24V15H21V12ZM21 21H24V24H21V21ZM21 18H24V21H21V18ZM21 21H18V24H21V21ZM21 24H18V27H21V24Z")
+                    path.main-body(d="M18 15H15V18H18V15ZM21 15H24V18H21V15ZM21 15H18V18H21V15ZM21 12H18V15H21V12ZM21 18H18V21H21V18Z")
+                  path.sparks(d="M36 13H39V16H36V13ZM27 27H30V30H27V27ZM18 33H21V36H18V33ZM9 27H12V30H9V27ZM24 0H27V3H24V0ZM33 3H36V6H33V3ZM3 3H6V6H3V3ZM12 0H15V3H12V0ZM0 13H3V16H0V13Z", fill="var(--sparks-color)")
+              button.card__like-button.general-button(type="button")
+                span.button__text Like
+      button.footer__button.general-button(type="button", onclick="window['save-memory'].showModal()", aria-controls="save-memory")
+        svg.footer__button-icon(viewBox="0 0 21 21")
+          use(href="./svg/floppy.svg#floppy")
+        span.button__text Сохранить на память
+    dialog#save-memory.popup 
+      div.popup__description
+        svg.popup__description-icon(viewBox="0 0 21 21")
+          use(href="./svg/floppy.svg#floppy")
+        p.popup__description-text.uppercase Вставьте дискету, чтобы продолжить
+      button.popup__button.general-button(onclick="window['save-memory'].close()", aria-controls="save-memory", type="button")
+        span.button__text.uppercase ок
+    script(src="./scripts/like.js")
+
