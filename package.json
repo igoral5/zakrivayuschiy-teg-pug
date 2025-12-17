@@ -33,16 +33,23 @@
     "dev": "gulp"
   },
   "devDependencies": {
+    "@prettier/plugin-pug": "^3.4.2",
+    "autoprefixer": "^10.4.23",
     "browser-sync": "^3.0.4",
+    "cssnano": "^7.1.2",
     "del": "^6.0.0",
     "gulp": "^5.0.1",
+    "gulp-cli": "^3.1.0",
     "gulp-concat-css": "^3.1.0",
     "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
     "gulp-pug": "^5.0.0",
+    "gulp-sass": "^6.0.1",
+    "html-minifier": "^4.0.0",
+    "postcss": "^8.5.6",
+    "postcss-combine-media-query": "^2.1.0",
     "prettier": "^3.7.4",
+    "sass": "^1.97.0",
     "stylelint": "^16.26.1"
-  },
-  "dependencies": {
-    "gulp-cli": "^3.1.0"
   }
 }

@@ -9,6 +9,8 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+@use 'variables-scss' as *;
+
 @keyframes scale {
   from {
     transform: scale(1);
@@ -35,7 +37,7 @@
 
 .contour {
   transition: fill 0.1s linear 0s;
-  fill: var(--contour-color);
+  fill: $contour-color;
 }
 
 .core {
@@ -48,49 +50,62 @@
   transition: fill 0.3s linear 0s;
 }
 
-.like-icon:hover .core {
-  fill: var(--text-color);
-  transition: fill 0.3s linear 0s;
-}
+.like-icon {
+  inline-size: 39px;
+  block-size: 36px;
+  margin-inline-start: -6px;
 
-.like-icon:hover .main-body {
-  fill: var(--text-color);
-  transition: fill 0.3s linear 0.05s;
-}
+  .heart {
+    transform-origin: center;
+  }
 
-.like-icon:active .core {
-  fill: var(--animation-fill-color);
-  transition: fill 0.3s linear 0s;
-}
+  &:hover {
+    .core {
+      fill: $text-color;
+      transition: fill 0.3s linear 0s;
+    }
 
-.like-icon:active .main-body {
-  fill: var(--animation-fill-color);
-  transition: fill 0.3s linear 0.05s;
-}
+    .main-body {
+      fill: $text-color;
+      transition: fill 0.3s linear 0.05s;
+    }
+  }
 
-.like-icon.is-liked .core {
-  transition: 0.3s linear 0s;
-  fill: var(--animation-fill-color);
-}
+  &:active {
+    .core {
+      fill: $animation-fill-color;
+      transition: fill 0.3s linear 0s;
+    }
 
-.like-icon.is-liked .main-body {
-  transition: 0.3s linear 0.05s;
-  fill: var(--animation-fill-color);
-}
+    .main-body {
+      fill: $animation-fill-color;
+      transition: fill 0.3s linear 0.05s;
+    }
+  }
 
-.like-icon.is-liked .contour {
-  transition: 0.3s linear 0.06s;
-  fill: var(--animation-fill-color);
-}
+  &.is-liked {
 
-.like-icon .heart {
-  transform-origin: center;
-}
+    .core {
+      transition: 0.3s linear 0s;
+      fill: $animation-fill-color;
+    }
 
-.like-icon.is-liked .heart {
-  animation: scale 0.3s ease-in;
-}
+    .main-body {
+      transition: 0.3s linear 0.05s;
+      fill: $animation-fill-color;
+    }
 
-.like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in 0.3s;
+    .contour {
+      transition: 0.3s linear 0.06s;
+      fill: $animation-fill-color;
+    }
+
+    .heart {
+      animation: scale 0.3s ease-in;
+    }
+
+    .sparks {
+      animation: sparks 0.3s ease-in 0.3s;
+    }
+  }
 }

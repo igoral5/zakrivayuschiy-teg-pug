@@ -1,0 +1,289 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+*/
+
+@use 'variables-scss' as *;
+
+.page {
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  font-family: $font-general, sans-serif;
+  font-variation-settings: 'wght' $font-weight-normal;
+  font-size: 18px;
+  background-image: $background;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.content-width {
+  inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
+  margin-inline: auto;
+}
+
+.header {
+  font-family: $font-accent, fantasy;
+  border: 2px solid $text-color;
+  padding-block: clamp(7.625rem, 7.4489rem + 0.7512vw, 8.125rem);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin-block: 97px;
+  gap: 20px;
+  background-color: $background-color;
+
+  &__title {
+    font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  }
+
+  &__desc {
+    font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  }
+}
+
+.main {
+  display: grid;
+  gap: 51px;
+  margin-block-end: 100px;
+}
+
+.card {
+  display: grid;
+  background-color: $background-color;
+  border: 2px solid $text-color;
+
+  &__title {
+    font-size: 18px;
+    font-variation-settings: 'wght' $font-weight-bold;
+    padding: 4px 10px;
+  }
+
+  &__image-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__description {
+    padding: 23px 25px;
+    display: grid;
+    gap: 25px;
+  }
+
+  &__text {
+    line-height: 1.166;
+  }
+
+  &__button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+  }
+
+  &__icon-button {
+    border: none;
+    block-size: 34px;
+    inline-size: 38px;
+    margin-inline-end: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    outline: 2px solid transparent;
+    transition: outline 0.3s ease;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $text-color;
+    }
+  }
+
+  &__like-button {
+    block-size: 38px;
+    inline-size: 130px;
+    background-color: transparent;
+  }
+}
+
+.watermark {
+  position: absolute;
+  inset-block-start: 28px;
+  inset-inline-end: 25px;
+  font-family: $font-accent, fantasy;
+  font-size: 14px;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  text-shadow: 0 0 1px $stroke-color;
+}
+
+@supports (-webkit-text-stroke: 1px $stroke-color) {
+  .watermark {
+    -webkit-text-stroke: 1px $stroke-color;
+    text-shadow: none;
+  }
+}
+
+.button__text {
+  font-family: $font-accent, fantasy;
+  font-size: 14px;
+  line-height: 0.9;
+  vertical-align: middle;
+}
+
+.sepia-saturate {
+  filter: sepia(0.5) saturate(0.5);
+}
+
+.saturate {
+  filter: saturate(5);
+}
+
+.rotate {
+  filter: hue-rotate(45deg);
+}
+
+.invert {
+  filter: invert(80%);
+}
+
+.sepia {
+  filter: sepia(0.8);
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+.rotate-blur {
+  filter: hue-rotate(90deg) brightness(1.2) contrast(0.5) blur(2px);
+}
+
+.footer {
+  &__button {
+    padding: 17px 20px;
+    background-color: $background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto;
+  }
+
+  &__button-icon {
+    inline-size: 21px;
+    block-size: 21px;
+  }
+}
+
+.popup {
+  display: none;
+  flex-direction: column;
+  padding: 30px 30px;
+  gap: 30px;
+  border: 2px solid $text-color;
+
+  &::backdrop {
+    background-color: rgb(0 0 0 / 0.75);
+  }
+
+  &[open] {
+    display: flex;
+  }
+
+  &__description {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  &__description-icon {
+    inline-size: 39px;
+    block-size: 39px;
+  }
+
+  &__description-text {
+    inline-size: 14rem;
+    font-family: $font-accent, fantasy;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__button {
+    padding-block: 12.5px;
+    background-color: transparent;
+  }
+}
+
+.general-button {
+  border: 2px solid $text-color;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0;
+    block-size: 100%;
+    inline-size: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    mix-blend-mode: difference;
+    background-color: $background-color;
+  }
+
+  &:hover::before {
+    transform: translateX(0);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 2px 2px 0 $text-color;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+@media (width <= 375px) {
+  .header {
+    margin-block: 98px;
+  }
+
+  .main {
+    gap: 50px;
+  }
+
+  .card {
+    &__description {
+      padding-block-end: 26px;
+    }
+  }
+
+  .footer {
+    &__button {
+      flex-direction: column;
+    }
+
+    &__button-icon {
+      inline-size: 28px;
+      block-size: 28px;
+    }
+  }
+}
